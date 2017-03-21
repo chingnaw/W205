@@ -1,0 +1,28 @@
+1.  How many rows are missing a value in the "State" column?  Explain how you came up with the number.
+
+There are 5377 rows that do not have a value in the "State" column.  If you look at the text facet for the "State" column, it will show you 62 states.  If you scroll to the bottom of that, it will also list the number rows that are blank.
+
+2.  How many rows with missing ZIP codes do you have?
+
+There are 4362 rows with missing value in the zip code column.  Some of the zip codes also look questionable as it is only 1 number when we are expecting 5.
+
+3.  If you consider all ZIP codes less than 99999 to be valid, how many valid and invalid ZIP codes do you have, respectively.
+
+If you looked at the data when the 99999 got converted to text, we can tell which ones are valid (numerical) or invalid (converted to text).  
+From the numerical facet, we can see that there are 345192 valid zip codes at 34944 invalid ones.
+
+4.  Change the radius to 3.0. What happens? Do you want to merge any of the resulting matches?
+
+I would want to merge with Radius 2.  After changing to Radius 3, there were countries that were similar enough that were flagged as to be merged, but they shouldn't be.  This included Tajikistan and Pakistan, which are 2 separate places as well as Indonesia and Micronesia.  Using the Radius 2 gave me the result I needed.
+
+5.  Change the block size to 2. Give two examples of new clusters that may be worth merging.
+
+The majority of these should not be merged as it now gives lots of countries that are similar enough to be flagged now that it's blocking by 2 characters only, but it is also able to pick up more variations of mispelling that should be merged.  For example, Alaska now finds and is able to merge on "Alaska", "alaska", and "alska".  California is able to be merged on "California", "Calfiornia", and "Cailfornia".  
+
+6.  Explain in words what happens when you cluster the "place" column, and why you think that happened. What additional functionality could OpenRefine provide to possibly deal with the situation?
+
+Clustering the "place" column gave the spinning wheel of doom.  After several minutes, I had to cancel.  This may be due to the non-letter characters in the formatting such as "," or "'" or whitespace which may cause it to not know what to do. OpenRefine could add these extra characters in as an actual character to allow for clustering.
+
+7.  Submit a representation of the resulting matrix from the Levenshtein edit distance calculation. The resulting value should be correct.
+
+Please see code.
