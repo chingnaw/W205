@@ -1,0 +1,58 @@
+1.
+MATCH p=(strange:Hero {name: 'DR. STRANGE/STEPHEN'})-[:APPEARED*0..2]-(doom:Hero {name: 'DR. DOOM/VICTOR VON'})
+RETURN p, length(p)
+ORDER BY length(p)
+LIMIT 1
+
+2.
+MATCH p=(strange:Hero {name: 'DR. STRANGE/STEPHEN'})-[:APPEARED*0..2]-(doom:Hero {name: 'DR. DOOM/VICTOR VON'})
+RETURN p, length(p)
+ORDER BY length(p)
+LIMIT 5
+
+3.
+MATCH (colossus:Hero { name: 'COLOSSUS II/PETER RA' })-[:APPEARED*2..2]-(friend_of_friend)
+WHERE NOT (colossus)-[:APPEARED]-(friend_of_friend)
+AND friend_of_friend.name <> 'COLOSSUS II/PETER RA'
+RETURN friend_of_friend.name, COUNT(*)
+ORDER BY COUNT(*) DESC , friend_of_friend.name
+LIMIT 5
+
+4.
+MATCH (ironman:Hero { name: 'IRON MAN/TONY STARK' })-[:APPEARED*2..2]-(friend_of_friend)
+WHERE NOT (ironman)-[:APPEARED]-(friend_of_friend)
+AND friend_of_friend.name <> 'IRON MAN/TONY STARK'
+RETURN friend_of_friend
+LIMIT 10
+
+5.
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 5
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 6
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 7
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 8
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 9
+
+MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
+RETURN other
+ORDER BY e.w DESC, f.w DESC
+LIMIT 10
