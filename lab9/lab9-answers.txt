@@ -26,6 +26,7 @@ RETURN friend_of_friend
 LIMIT 10
 
 5.
+No, the graph is always fully connected.
 
 MATCH (tony:Hero {name:'IRON MAN/TONY STARK'}) -[e:APPEARED]-> (other) <-[f:APPEARED]- (donald:Hero {name:'THOR/DR. DONALD BLAK'})
 RETURN other
