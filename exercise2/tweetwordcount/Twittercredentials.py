@@ -1,16 +1,16 @@
 import tweepy
 
-consumer_key = "81jopBkezcCBaCHXKI6eYviHb";
+consumer_key = "S0VFdxYc6ZOMZeEuSo5d81LWz";
 #eg: consumer_key = "YisfFjiodKtojtUvW4MSEcPm";
 
 
-consumer_secret = "mTtWOKdRaZNRZAw8C4JBUFT43q4w0zi7jZNPLsbdWpYFGfDSuH";
+consumer_secret = "orfwiGuoNZzzJ73k8tcqeuDidP3lslIch094soZ0tBQyuUaGIT";
 #eg: consumer_secret = "YisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPm";
 
-access_token = "32722838-Cn8ex52SbV9eO82cbDeRCleaAuHqiviWr9v7xMY57";
+access_token = "32722838-PcFSFcgKr1nae7TkwR2AoEpX7kfQqWxnqzyVQWYkL";
 #eg: access_token = "YisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPm";
 
-access_token_secret = "JjarwDyiMj1kEIL9mICh9IZ7btwO7gVeTGsA53XmcgJuE";
+access_token_secret = "YhhLqTuUYc6N8GLP2eqqTD4YCiyubOLWV5AYYaVH5bfK4";
 #eg: access_token_secret = "YisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPm";
 
 

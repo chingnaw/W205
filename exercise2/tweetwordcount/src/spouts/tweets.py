@@ -10,10 +10,10 @@ from streamparse.spout import Spout
 # Twitter credentials
 ################################################################################
 twitter_credentials = {
-    "consumer_key"        :  "<enter your consumer key>",
-    "consumer_secret"     :  "<enter your consumer secret key>",
-    "access_token"        :  "<enter your access token>",
-    "access_token_secret" :  "<enter your access token secret key>",
+    "consumer_key"        :  "S0VFdxYc6ZOMZeEuSo5d81LWz",
+    "consumer_secret"     :  "orfwiGuoNZzzJ73k8tcqeuDidP3lslIch094soZ0tBQyuUaGIT",
+    "access_token"        :  "32722838-PcFSFcgKr1nae7TkwR2AoEpX7kfQqWxnqzyVQWYkL",
+    "access_token_secret" :  "YhhLqTuUYc6N8GLP2eqqTD4YCiyubOLWV5AYYaVH5bfK4",
 }
 
 def auth_get(auth_key):
