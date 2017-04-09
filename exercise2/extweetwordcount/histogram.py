@@ -3,6 +3,7 @@ import sys
 import os
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from operator import itemgetter
 
 
 HELP_STRING = """The script gets two integers (a,b) and returns all the words with 
@@ -33,8 +34,10 @@ for (opt, opt_arg) in optlist:
         print ""
         print HELP_STRING
         sys.exit(1)
-    elif opt == "w":
-        word = opt_arg
+    elif opt == "-a":
+        min = int(opt_arg)
+    elif opt == "-b":
+        max = int(opt_arg)
 
 # check required parameters exist, and exit otherwise
 if(min == max):
@@ -52,6 +55,5 @@ cur.execute("SELECT word, count from tweetwordcount WHERE count between %s and %
 records = cur.fetchall()
 records_sorted = sorted(records,key=itemgetter(1))
 for rec in records_sorted:
-   print "word = ", rec[0]
-   print "count = ", rec[1], "\n"
+   print "%s:%s" % (rec[0],rec[1])
 conn.commit()

@@ -7,7 +7,6 @@ from operator import itemgetter
 
 
 
-
 HELP_STRING = """When passed a word (w), script will return the total number of 
 word occurrences in the stream. If no word is specified, it will returns all words 
 in the stream, and their total count of occurrences, sorted alphabetically.
@@ -36,8 +35,8 @@ for (opt, opt_arg) in optlist:
         print ""
         print HELP_STRING
         sys.exit(1)
-    elif opt == "w":
-        word = opt_arg
+    elif opt == "-w":
+        word = str(opt_arg)
 
 # check required parameters exist, and exit otherwise
 #if():
@@ -49,13 +48,14 @@ for (opt, opt_arg) in optlist:
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
 
-if word != None:
+if word:
     #some code that will search database for that word, print that record
+    #print word
     cur = conn.cursor()
-    cur.execute("SELECT word, count from tweetwordcount WHERE word == %s", (word,))
+    cur.execute("SELECT word, count from tweetwordcount WHERE word = %s", (word,))
     records = cur.fetchall()
-    print "word = ", records[0]
-    print "count = ", records[1], "\n"
+    for rec in records:
+        print "word:%s\tcount:%s " % (rec[0],rec[1])
     conn.commit()
 
 elif word == None:
@@ -65,21 +65,21 @@ elif word == None:
     records = cur.fetchall()
     records_alphabetical = sorted(records,key=itemgetter(0))
     for rec in records_alphabetical:
-       print "word = ", rec[0]
-       print "count = ", rec[1], "\n"
+       print "word:%s\tcount:%s" % (rec[0],rec[1])
     conn.commit()
 
 else:
     print "%s was not found in tweetwordcount" % word
 
+out = open('plot.txt','w')
+
 cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount")
 records = cur.fetchall()
 records_sorted = sorted(records,key=itemgetter(1), reverse=True)
-# for rec in records_sorted:
-#    print "word = ", rec[0]
-#    print "count = ", rec[1], "\n"
 conn.commit()
 
-plt.hist(records_sorted[:10])
+for rec in records_sorted[:20]:
+    out.write("%s\t%s\n" % (rec[0],rec[1]))
 
+out.close()
