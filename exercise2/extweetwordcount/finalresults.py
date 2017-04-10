@@ -54,8 +54,11 @@ if word:
     cur = conn.cursor()
     cur.execute("SELECT word, count from tweetwordcount WHERE word = %s", (word,))
     records = cur.fetchall()
-    for rec in records:
-        print "word:%s\tcount:%s " % (rec[0],rec[1])
+    if len(records) == 0:
+        print "%s did not appear in the twitter stream." % word
+    else:
+        for rec in records:
+            print "Total number of occurrencies of %s: %s" % (rec[0],rec[1])
     conn.commit()
 
 elif word == None:
@@ -65,11 +68,8 @@ elif word == None:
     records = cur.fetchall()
     records_alphabetical = sorted(records,key=itemgetter(0))
     for rec in records_alphabetical:
-       print "word:%s\tcount:%s" % (rec[0],rec[1])
+       print "%s: %s" % (rec[0],rec[1])
     conn.commit()
-
-else:
-    print "%s was not found in tweetwordcount" % word
 
 out = open('plot.txt','w')
 

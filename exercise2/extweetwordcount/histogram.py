@@ -55,5 +55,5 @@ cur.execute("SELECT word, count from tweetwordcount WHERE count between %s and %
 records = cur.fetchall()
 records_sorted = sorted(records,key=itemgetter(1))
 for rec in records_sorted:
-   print "%s:%s" % (rec[0],rec[1])
+   print "%s: %s" % (rec[0],rec[1])
 conn.commit()
