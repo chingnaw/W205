@@ -3,7 +3,7 @@ Run Instructions for extweetwordcount
 Note: Please run everything from the extweetwordcount folder as the w205 user in the ami-d4dd4ec3 (UCB MIDS W205 EX2-FULL) instance on AWS.  All dependencies specified in the Architecture file must be preinstalled.
 
 File Setup
-Please make sure Postgres is running.
+Please make sure Postgres is running (this is the only step that should be run as the root user).
 The first step after receiving extweetcount is to run prerun.py.  This will remove any data you may have already stored in tcount and create a new clean copy of tcount.  In addition, it will add the credentials you specified in this script in so that the data stream will work. Additional info on this script can be found by using '-h' in the python command.
 
 
