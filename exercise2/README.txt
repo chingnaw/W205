@@ -4,7 +4,7 @@ Note: Please run everything from the extweetwordcount folder as the w205 user in
 
 File Setup
 Please make sure Postgres is running.
-The first step after received extweetcount is to run prerun.py.  This will remove any data you may have already stored in tcount and create a new clean copy of tcount.  In addition, it will add the credentials you specified in this script in so that the data stream will work. Additional info on this script can be found by using '-h' in the python command.
+The first step after receiving extweetcount is to run prerun.py.  This will remove any data you may have already stored in tcount and create a new clean copy of tcount.  In addition, it will add the credentials you specified in this script in so that the data stream will work. Additional info on this script can be found by using '-h' in the python command.
 
 
 [w205@ip-172-31-73-176 extweetwordcount]$ python prerun.py -h
