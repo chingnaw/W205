@@ -1,12 +1,10 @@
-extweetcount Instructions.
+Run Instructions for extweetwordcount.
 
-Please run everything from the extweetcount folder.  All dependencies specified in the Architecture folder must be preinstalled.
+Please run everything from the extweetwordcount folder as the w205 user in the ami-d4dd4ec3 (UCB MIDS W205 EX2-FULL).  All dependencies specified in the Architecture folder must be preinstalled.
 
 The first step after received extweetcount is to run prerun.py.  This will remove any data you may have already stored in tcount and create a new clean copy of tcount.
 
-The next step is to enter the credentials from your Twitter API.  Please refer to the Architecture file if your API is not set up properly.  The information must be entered into the /src/tweets.py script where noted.
-
-After setting up the Postgres database, you can run 'sparse run'.  Once you have collected all the data you want, please press ctrl-C to stop the stream.  All the tweeted words from starting the stream will be stored in the tcount database.  
+After setting up the Postgres database, you can run 'sparse run'.  Once you have collected all the data you want, please press ctrl-C to stop the stream.  All the tweeted words from starting the stream will be stored in the tcount database.
 
 Now you can run either finalresults.py or histogram.py.  Both have a help menu available for the options if you input '-h' into the python command.
 
