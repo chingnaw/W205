@@ -17,7 +17,7 @@ information needed required to connect to twitter.
     -s Consumer Secret (create via apps.twitter.com)
     -k Access Key (create via apps.twitter.com)
     -a Access Secret (create via apps.twitter.com)
-    -h help menu
+    -h this help menu
 
 
 Stream Twitter
